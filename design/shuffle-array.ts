@@ -5,24 +5,25 @@
  * var param_2 = obj.shuffle()
  */
 export default class Solution {
-    original: number[];
+  original: number[];
 
-    constructor(nums: number[]) {
-        this.original = nums;
-    }
+  constructor(nums: number[]) {
+    this.original = nums;
+  }
 
-    reset(): number[] {
-        return this.original;
-    }
+  reset(): number[] {
+    return this.original;
+  }
 
-    shuffle(): number[] {
-        const elements = [...this.original];
-        let index = 0;
-        const shuffled = [];
-        while (elements.length > 0) {
-            const nextIndex = Math.floor(Math.random() * elements.length);
-            shuffled[index++] = elements.splice(nextIndex, 1)[0];
-        }
-        return shuffled;
+  shuffle(): number[] {
+    const elements = [...this.original];
+    let index = 0;
+    const shuffled = [];
+    while (elements.length > 0) {
+      const nextIndex = Math.floor(Math.random() * elements.length);
+      // eslint-disable-next-line prefer-destructuring, no-plusplus
+      shuffled[index++] = elements.splice(nextIndex, 1)[0];
     }
+    return shuffled;
+  }
 }
